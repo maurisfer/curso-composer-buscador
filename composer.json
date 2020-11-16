@@ -1,0 +1,43 @@
+{
+  "name": "maurisfer/buscador-cursos-alura",
+  "description": "Projeto de buscador de cursos do site da Alura",
+  "type": "library",
+  "authors": [
+    {
+      "name": "maurisfer",
+      "email": "mauriciosfernandes94@gmail.com"
+    }
+  ],
+  "require": {
+    "guzzlehttp/guzzle": "^7.2",
+    "symfony/dom-crawler": "^5.1",
+    "symfony/css-selector": "^5.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Alura\\BuscadorDeCursos\\": "src/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "9",
+    "squizlabs/php_codesniffer": "^3.5",
+    "phan/phan": "^3.2"
+  },
+  "scripts": {
+    "test": "phpunit tests\\TestBuscadorDeCursos.php",
+    "cs": "phpcs --standard=PSR12 src\\",
+    "phan": "phan --allow-polyfill-parser",
+    "ls": "dir",
+    "check": [
+      "@phan",
+      "@cs",
+      "@test"
+    ],
+    "post-update-cmd": [
+      "@test"
+    ]
+  },
+  "scripts-descriptions": {
+    "check": "Roda as verificações do código. PHAN, PHPCS"
+  }
+}
